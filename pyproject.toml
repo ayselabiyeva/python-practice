@@ -1,0 +1,32 @@
+[project]
+name = "python-practice"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "ayselabiyeva", email = "ayselabiyeffam13@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+python-practice = "python_practice:main"
+
+[build-system]
+requires = ["uv_build>=0.13.5,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff>=0.17.3",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+extend-exclude = ["basics/tasks_original.py", "basics/tasks_fixed.py"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
