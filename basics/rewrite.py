@@ -7,6 +7,7 @@ risks = [
     {"name": "Staff turnover", "severity": 2, "owner": "HR"},
 ]
 
+
 def word_count(text: str) -> dict:
     list_of_words = text.split()
     seen_words = {}
@@ -19,9 +20,11 @@ def word_count(text: str) -> dict:
 
     return seen_words
 
+
 def high_risks(risks: list) -> list:
     filtered_risks = sorted(risks, key=lambda x: x["severity"], reverse=True)
-    return  [risk["name"] for risk in filtered_risks if risk["severity"] >= 4]
+    return [risk["name"] for risk in filtered_risks if risk["severity"] >= 4]
+
 
 def group_by_owner(risks: list) -> dict:
     grouped_owners = {}
@@ -32,6 +35,7 @@ def group_by_owner(risks: list) -> dict:
         grouped_owners[owner].append(risk["name"])
 
     return grouped_owners
+
 
 class Risk:
     def __init__(self, name, severity):
@@ -46,9 +50,12 @@ def save_risks(risks: list, path):
     with open(path, "w") as f:
         json.dump(risks, f)
 
+
 def load_risks(path):
-    with open(path) as f: text = json.load(f)
+    with open(path) as f:
+        text = json.load(f)
     return text
+
 
 def test_high_risk():
     risks = [
